@@ -15,12 +15,15 @@ class Ipget(Resource):
 
 
 class Ipupdate(Resource):
+    def get(self)
+        return {"message": "welcome"}
     def put(self, newip):
         global ip
         ip = newip
         return "Updated", 201
 
 
+api.add_resource(Ipupdate, "/")
 api.add_resource(Ipget, "/getip/<string:password>")
 api.add_resource(Ipupdate, "/updateip/<string:newip>")
 
