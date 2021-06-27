@@ -21,8 +21,8 @@ class Ipupdate(Resource):
         return "Updated", 201
 
 
-api.add_resource(Ipget, "/ip/<string:password>")
-api.add_resource(Ipupdate, "/ip/<string:newip>")
+api.add_resource(Ipget, "/getip/<string:password>")
+api.add_resource(Ipupdate, "/updateip/<string:newip>")
 
 if __name__ == '__main__':
     app.run()
