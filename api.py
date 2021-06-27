@@ -15,7 +15,7 @@ class Ipget(Resource):
 
 
 class Ipupdate(Resource):
-    def get(self)
+    def get(self):
         return {"message": "welcome"}
     def put(self, newip):
         global ip
