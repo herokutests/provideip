@@ -3,26 +3,23 @@ from flask_restful import Resource, Api, reqparse, abort
 
 app = Flask(__name__)
 api = Api(app)
-ip = "192.168.1.11"
 
 
-class Ipget(Resource):
-    def get(self, password):
-        if password == "kellazip":
-            return ip
-        else:
-            return "incorrect password"
+class Ip(Resource):
+    def get(self):
+        with open("ip.txt", "r") as text:
+            return text.read()
 
 
-class Ipupdate(Resource):
+class Update(Resource):
     def put(self, newip):
-        global ip
-        ip = newip
+        with open("ip.txt", "w") as text:
+            text.write(newip)
         return "Updated", 201
 
 
-api.add_resource(Ipget, "/getip/<string:password>")
-api.add_resource(Ipupdate, "/updateip/<string:newip>")
+api.add_resource(Ip, "/ip")
+api.add_resource(Update, "/updateip/<string:newip>")
 
 if __name__ == '__main__':
     app.run()
