@@ -5,7 +5,7 @@ import github
 app = Flask(__name__)
 api = Api(app)
 
-g = github.Github("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")
+g = github.Github("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")
 repo = g.get_repo("herokutests/provideip")
 
 
